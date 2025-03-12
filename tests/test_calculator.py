@@ -1,5 +1,5 @@
 import pytest
-from calculator.calculator import Calculator
+from app.calculator import Calculator
 
 def test_add():
     """Test that Calculator.add returns the correct sum."""
