@@ -46,13 +46,20 @@ def main():
             continue
 
         parts = user_input.split()
-        cmd_name = parts[0]
+
+        # Check if command exists
+        cmd_name = parts[0].lower()
         if cmd_name not in commands:
             print("Unknown command:", cmd_name)
             continue
 
+        # Ensure there are operands provided
+        if len(parts) < 3:
+            print("Invalid input. Format: command operand1 operand2")
+            continue
+
         try:
-            # Attempt to convert operands to floats
+            # Convert all operands (everything after the command) to floats
             operands = [float(x) for x in parts[1:]]
         except ValueError:
             print("Invalid operands. Please enter numbers.")
