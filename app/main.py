@@ -1,9 +1,9 @@
 import os
 import logging
-from calculator.calculator import Calculator
-from calculator.history_manager import HistoryManager
-from calculator.plugin_manager import PluginManager
-from calculator.commands.basic_commands import AddCommand, SubtractCommand, MultiplyCommand, DivideCommand
+from app.calculator import Calculator
+from app.history_manager import HistoryManager
+from app.plugin_manager import PluginManager
+from app.commands.basic_commands import AddCommand, SubtractCommand, MultiplyCommand, DivideCommand
 
 def setup_logging():
     log_level = os.getenv("LOG_LEVEL", "INFO").upper()
