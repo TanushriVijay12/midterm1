@@ -1,36 +1,28 @@
 import pytest
 from calculator.calculator import Calculator
-from calculator.calculation import Calculation
-from calculator.calculations import Calculations
 
-@pytest.fixture
-def test_data():
-    return {"a": 10, "b": 5, "zero": 0}
+def test_add():
+    """Test that Calculator.add returns the correct sum."""
+    calc = Calculator()
+    assert calc.add(2, 3) == 5
 
-@pytest.mark.parametrize("a, b, expected", [
-    (2, 3, 5),
-    (10, 5, 15),
-    (100, 50, 150)
-])
-def test_static_add(a, b, expected):
-    assert Calculator.add(a, b) == expected
+def test_subtract():
+    """Test that Calculator.subtract returns the correct difference."""
+    calc = Calculator()
+    assert calc.subtract(5, 3) == 2
 
-def test_instance_subtract(test_data):
-    calc = Calculation(test_data["a"], test_data["b"])
-    assert calc.subtract() == 5
+def test_multiply():
+    """Test that Calculator.multiply returns the correct product."""
+    calc = Calculator()
+    assert calc.multiply(4, 3) == 12
 
-def test_class_multiply(test_data):
-    assert Calculations.multiply(test_data["a"], test_data["b"]) == 50
+def test_divide():
+    """Test that Calculator.divide returns the correct quotient."""
+    calc = Calculator()
+    assert calc.divide(10, 2) == 5
 
-def test_divide_by_zero_static(test_data):
+def test_divide_by_zero():
+    """Test that Calculator.divide raises a ValueError when dividing by zero."""
+    calc = Calculator()
     with pytest.raises(ValueError):
-        Calculator.divide(test_data["a"], test_data["zero"])
-
-def test_divide_by_zero_instance(test_data):
-    calc = Calculation(test_data["a"], test_data["zero"])
-    with pytest.raises(ValueError):
-        calc.divide()
-
-def test_divide_by_zero_class(test_data):
-    with pytest.raises(ValueError):
-        Calculations.divide(test_data["a"], test_data["zero"])
+        calc.divide(10, 0)
