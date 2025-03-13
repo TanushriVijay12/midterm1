@@ -29,20 +29,28 @@ class PowerCommand:
 
 # Factorial Command (Additional Example)
 class FactorialCommand:
+    def __init__(self, history_manager=None):
+        self.history_manager = history_manager
     def execute(self, a):
         if a < 0:
             raise ValueError("Factorial is not defined for negative numbers.")
         result = math.factorial(int(a))
         logging.info(f"FactorialCommand: factorial({a}) = {result}")
+        if self.history_manager:
+            self.history_manager.add_record("factorial", a, None, result)
         return result
 
 # Logarithm Command (Additional Example)
 class LogarithmCommand:
+    def __init__(self, history_manager=None):
+        self.history_manager = history_manager
     def execute(self, a, base=math.e):
         if a <= 0:
             raise ValueError("Logarithm undefined for non-positive values.")
         result = math.log(a, base)
         logging.info(f"LogarithmCommand: log_{base}({a}) = {result}")
+        if self.history_manager:
+            self.history_manager.add_record("log", a, base, result)
         return result
 
 def register(history_manager=None):
@@ -53,6 +61,6 @@ def register(history_manager=None):
     return {
         "sqrt": SquareRootCommand(history_manager),
         "power": PowerCommand(history_manager),
-        "factorial": FactorialCommand(),
-        "log": LogarithmCommand(),
+        "factorial": FactorialCommand(history_manager),
+        "log": LogarithmCommand(history_manager),
     }
