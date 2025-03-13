@@ -1,4 +1,5 @@
 import os
+import inspect
 import logging
 from app.calculator import Calculator
 from app.history_manager import HistoryManager
@@ -54,16 +55,31 @@ def main():
             continue
 
         # Ensure there are operands provided
-        if len(parts) < 3:
-            print("Invalid input. Format: command operand1 operand2")
+        #if len(parts) < 3:
+         #   print("Invalid input. Format: command operand1 operand2")
+          #  continue
+
+        # Use inspect to determine the number of operands required (excluding 'self')
+        sig = inspect.signature(commands[cmd_name].execute)
+        expected_operands = len(sig.parameters)
+
+        if len(parts[1:]) < expected_operands:
+            print(f"Invalid input. {cmd_name} expects {expected_operands} operand(s).")
             continue
 
         try:
-            # Convert all operands (everything after the command) to floats
-            operands = [float(x) for x in parts[1:]]
+            # Only take the number of operands expected.
+            operands = [float(x) for x in parts[1:expected_operands+1]]
         except ValueError:
             print("Invalid operands. Please enter numbers.")
             continue
+
+        #try:
+            # Convert all operands (everything after the command) to floats
+         #   operands = [float(x) for x in parts[1:]]
+        #except ValueError:
+         #   print("Invalid operands. Please enter numbers.")
+          #  continue
 
         try:
             result = commands[cmd_name].execute(*operands)
