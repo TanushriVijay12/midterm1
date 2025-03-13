@@ -1,16 +1,21 @@
 import os
 import inspect
 import logging
+from dotenv import load_dotenv
+load_dotenv()
 from app.calculator import Calculator
 from app.history_manager import HistoryManager
 from app.plugin_manager import PluginManager
 from app.commands.basic_commands import AddCommand, SubtractCommand, MultiplyCommand, DivideCommand
 
+
 def setup_logging():
     log_level = os.getenv("LOG_LEVEL", "INFO").upper()
-    logging.basicConfig(level=log_level,
-                        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-
+    logging.basicConfig(
+        filename="applog.log",  # Logs will be stored in applog.log
+        level=log_level,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
 def main():
     setup_logging()
     logger = logging.getLogger(__name__)
