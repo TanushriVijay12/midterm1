@@ -28,7 +28,7 @@ The Advanced Python Calculator is a command-line application and it demonstrates
 
 - **Design Patterns:**  
     - Command Pattern: Each calculator operation is encapsulated in its own command class (e.g., AddCommand, SubtractCommand, etc.), all implementing an execute() method, ([app/commands/basic_commands.py](https://github.com/TanushriVijay12/midterm1/blob/master/app/commands/basic_commands.py)). 
-    - Facade Pattern: A simplified interface that hides the complexity of underlying data manipulations.The history manager module wraps complex Pandas operations (loading, saving, and clearing history) into simple methods. ([app/history_manager.py](https://github.com/TanushriVijay12/midterm1/blob/main/app/history_manager.py))
+    - Facade Pattern: A simplified interface that hides the complexity of underlying data manipulations.The history manager module wraps complex Pandas operations (loading, saving, and clearing history) into simple methods. ([app/history_manager.py](https://github.com/TanushriVijay12/midterm1/blob/master/app/history_manager.py))
     - Factory/Strategy-like Approach: Plugin system - A dynamic method for extending application functionality without changing core code. New commands are "registered" via plugins. (implemented in [app/plugin_manager.py](https://github.com/TanushriVijay12/midterm1/blob/main/app/plugin_manager.py))
 
 - **Environment Variables:**  
