@@ -85,3 +85,19 @@ ValueError: Factorial is not defined for negative numbers.
 2025-03-14 11:37:17,607 - root - INFO - AddCommand: 6.0 + 7.0 = 13.0
 2025-03-14 11:37:27,390 - __main__ - DEBUG - Executing command factorial with operands [7.0]
 2025-03-14 11:37:27,391 - root - INFO - FactorialCommand: factorial(7.0) = 5040
+2025-03-14 11:48:36,121 - __main__ - INFO - Starting Advanced Python Calculator with REPL...
+2025-03-14 11:48:45,290 - __main__ - DEBUG - Executing command greet_plugin with operands []
+2025-03-14 11:48:45,290 - root - INFO - GreetPluginCommand: Hello World, Greetings from the greet plugin!
+2025-03-14 11:49:30,071 - __main__ - DEBUG - Executing command greet_plugin with operands []
+2025-03-14 11:49:30,071 - root - INFO - GreetPluginCommand: Hello World, Greetings from the greet plugin!
+2025-03-14 11:53:36,788 - __main__ - DEBUG - Executing command greet_plugin with operands []
+2025-03-14 11:53:36,788 - root - INFO - GreetPluginCommand: Hello World, Greetings from the greet plugin!
+2025-03-14 11:55:46,437 - __main__ - INFO - Starting Advanced Python Calculator with REPL...
+2025-03-14 11:55:52,200 - __main__ - DEBUG - Executing command greet_plugin with operands []
+2025-03-14 11:55:52,200 - root - INFO - GreetPluginCommand: Hello World, Greetings from the greet plugin!
+2025-03-14 11:55:58,681 - __main__ - DEBUG - Executing command greet_plugin with operands ['Tanu']
+2025-03-14 11:55:58,681 - root - INFO - GreetPluginCommand: Hello Tanu, Greetings from the greet plugin!
+2025-03-14 11:56:10,262 - __main__ - DEBUG - Executing command greet_plugin with operands ['Alice']
+2025-03-14 11:56:10,262 - root - INFO - GreetPluginCommand: Hello Alice, Greetings from the greet plugin!
+2025-03-14 11:56:26,296 - __main__ - DEBUG - Executing command export_csv with operands ['new1history.csv']
+2025-03-14 11:56:26,299 - root - INFO - CSVExportCommand: Exported history to new1history.csv

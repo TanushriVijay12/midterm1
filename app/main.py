@@ -68,14 +68,15 @@ def main():
             continue
 
         try:
-            # For greet_plugin, pass operands as strings.
-            if cmd_name == "greet_plugin":
-                operands = parts[1:expected_operands+1]
-            # For commands that expect string operands (e.g., export_csv), pass them as-is.
-            # Otherwise, convert operands to float.
-            elif cmd_name == "export_csv":
-                operands = parts[1:expected_operands+1]
+             # For greet_plugin and export_csv, handle operands as strings.
+            if cmd_name == "greet_plugin" or cmd_name == "export_csv":
+                # If the user supplies at least one operand, pass exactly one; otherwise, pass nothing.
+                if len(parts) > 1:
+                    operands = parts[1:2]
+                else:
+                    operands = []
             else:
+                # For all other commands, convert operands to float.
                 total_params = len(sig.parameters)
                 operands = [float(x) for x in parts[1:total_params+1]]
         except ValueError:
