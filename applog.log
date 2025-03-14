@@ -108,3 +108,26 @@ ValueError: Factorial is not defined for negative numbers.
 2025-03-14 12:08:32,353 - root - INFO - GreetPluginCommand: Hello World, Greetings from the greet plugin!
 2025-03-14 12:08:41,559 - __main__ - DEBUG - Executing command greet_plugin with operands ['webbbb']
 2025-03-14 12:08:41,559 - root - INFO - GreetPluginCommand: Hello webbbb, Greetings from the greet plugin!
+2025-03-14 14:06:14,844 - __main__ - INFO - Starting Advanced Python Calculator with REPL...
+2025-03-14 14:06:55,301 - __main__ - DEBUG - Executing command add with operands [6.0, 45.0]
+2025-03-14 14:06:55,310 - root - INFO - AddCommand: 6.0 + 45.0 = 51.0
+2025-03-14 14:07:03,756 - __main__ - DEBUG - Executing command subtract with operands [4.0, 2.0]
+2025-03-14 14:07:03,761 - root - INFO - SubtractCommand: 4.0 - 2.0 = 2.0
+2025-03-14 14:07:08,329 - __main__ - DEBUG - Executing command divide with operands [4.0, 2.0]
+2025-03-14 14:07:08,332 - root - INFO - DivideCommand: 4.0 / 2.0 = 2.0
+2025-03-14 14:07:12,295 - __main__ - DEBUG - Executing command divide with operands [4.0, 0.0]
+2025-03-14 14:07:12,295 - __main__ - ERROR - Error executing command divide: Division by zero!
+Traceback (most recent call last):
+  File "/home/tanu7/webproj25/midtermhw/app/main.py", line 88, in main
+    result = commands[cmd_name].execute(*operands)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tanu7/webproj25/midtermhw/app/commands/basic_commands.py", line 51, in execute
+    result = self.calculator.divide(a, b)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tanu7/webproj25/midtermhw/app/calculator.py", line 18, in divide
+    raise ValueError("Division by zero!")
+ValueError: Division by zero!
+2025-03-14 14:07:32,402 - __main__ - DEBUG - Executing command greet_plugin with operands ['Tanushri']
+2025-03-14 14:07:32,402 - root - INFO - GreetPluginCommand: Hello Tanushri, Greetings from the greet plugin!
+2025-03-14 14:08:01,233 - __main__ - DEBUG - Executing command export_csv with operands ['egamplehist.csv']
+2025-03-14 14:08:01,238 - root - INFO - CSVExportCommand: Exported history to egamplehist.csv

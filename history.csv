@@ -84,3 +84,11 @@ add,1.0,2.0,3.0
 greet_plugin,Tanu,,"Hello Tanu, Greetings from the greet plugin!"
 add,1.0,2.0,3.0
 greet_plugin,Tanu,,"Hello Tanu, Greetings from the greet plugin!"
+add,1.0,2.0,3.0
+greet_plugin,Tanu,,"Hello Tanu, Greetings from the greet plugin!"
+add,6.0,45.0,51.0
+subtract,4.0,2.0,2.0
+divide,4.0,2.0,2.0
+greet_plugin,Tanushri,,"Hello Tanushri, Greetings from the greet plugin!"
+add,1.0,2.0,3.0
+greet_plugin,Tanu,,"Hello Tanu, Greetings from the greet plugin!"
