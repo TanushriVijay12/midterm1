@@ -12,11 +12,12 @@ class HistoryManager:
             self.load_history()
 
     def add_record(self, operation, a, b, result):
+        # Convert values to string so that text-based commands (like greet_plugin) are recorded correctly.
         new_row = {
             "operation": operation,
-            "operand1": a,
-            "operand2": b,
-            "result": result
+            "operand1": str(a) if a is not None else "",
+            "operand2": str(b) if b is not None else "",
+            "result": str(result)
         }
         self.history = pd.concat([self.history, pd.DataFrame([new_row])], ignore_index=True)
         self.save_history()

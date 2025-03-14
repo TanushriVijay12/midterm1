@@ -15,9 +15,10 @@ def test_add_record(history_manager):
     assert len(history_manager.history) == 1
     row = history_manager.history.iloc[0]
     assert row["operation"] == "add"
-    assert row["operand1"] == 2
-    assert row["operand2"] == 3
-    assert row["result"] == 5
+    assert row["operand1"] == "2"  # Expect string "2"
+    assert row["operand2"] == "3"  # Expect string "3"
+    assert row["result"] == "5"    # Expect string "5"
+
 
 def test_save_and_load_history(history_manager):
     # Add a record, then create a new HistoryManager that loads from the CSV file

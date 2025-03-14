@@ -101,3 +101,10 @@ ValueError: Factorial is not defined for negative numbers.
 2025-03-14 11:56:10,262 - root - INFO - GreetPluginCommand: Hello Alice, Greetings from the greet plugin!
 2025-03-14 11:56:26,296 - __main__ - DEBUG - Executing command export_csv with operands ['new1history.csv']
 2025-03-14 11:56:26,299 - root - INFO - CSVExportCommand: Exported history to new1history.csv
+2025-03-14 12:08:04,469 - __main__ - INFO - Starting Advanced Python Calculator with REPL...
+2025-03-14 12:08:14,747 - __main__ - DEBUG - Executing command add with operands [5.0, 7.0]
+2025-03-14 12:08:14,750 - root - INFO - AddCommand: 5.0 + 7.0 = 12.0
+2025-03-14 12:08:32,353 - __main__ - DEBUG - Executing command greet_plugin with operands []
+2025-03-14 12:08:32,353 - root - INFO - GreetPluginCommand: Hello World, Greetings from the greet plugin!
+2025-03-14 12:08:41,559 - __main__ - DEBUG - Executing command greet_plugin with operands ['webbbb']
+2025-03-14 12:08:41,559 - root - INFO - GreetPluginCommand: Hello webbbb, Greetings from the greet plugin!
