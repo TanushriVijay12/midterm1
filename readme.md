@@ -40,3 +40,56 @@ The Advanced Python Calculator is a command-line application and it demonstrates
 
 - **Exception Handling:**  
   The code uses try/except blocks to handle errors gracefully, following both the EAFP and LBYL philosophies. Input is validated before operations, and errors (such as conversion failures or invalid operations) are caught and logged ([app/main.py](https://github.com/TanushriVijay12/midterm1/blob/master/app/main.py))
+
+
+## Setup and Installation
+
+### Prerequisites
+- Python 3.10 (or later)
+- pip
+
+### Steps to Set Up
+1. **Clone the Repository:**
+    git clone https://github.com/TanushriVijay12/midterm1.git
+    cd midterm1
+2. Create and Activate a Virtual Environment
+    python -m venv venv
+    source venv/bin/activate   # On Windows: venv\Scripts\activate
+3. Install Dependencies
+     Ensure your requirements.txt is up-to-date (it should include packages like pandas, pytest, python-dotenv, etc.)
+    pip install -r requirements.txt
+4. Set Up Environment Variables
+    Create a .env file in the project root (this file is listed in .gitignore):
+    # .env file
+    LOCAL_ENV=development
+    LOG_LEVEL=DEBUG
+
+5. Configure GitHub Actions
+    A workflow file is located in .github/workflows/python-app.yml that automatically runs tests and linting on every push and pull request.
+
+
+## Application Execution
+
+### Run application by executing:
+python -m app.main
+
+### Sample commands:
+add 3 2
+sqrt 16
+greet_plugin Alice
+export_csv export_history.csv
+log 2.71828
+log 100 10
+
+## Testing and Continuous Integration
+
+### Local testing
+1. pytest
+2. pytest --pylint
+3. pytest --pylint --cov
+
+### Github Actions
+A GitHub Actions workflow is configured in .github/workflows/python-app.yml
+
+
+
