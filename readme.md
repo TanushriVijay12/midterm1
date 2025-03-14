@@ -28,15 +28,15 @@ The Advanced Python Calculator is a command-line application and it demonstrates
 
 - **Design Patterns:**  
     - Command Pattern: Each calculator operation is encapsulated in its own command class (e.g., AddCommand, SubtractCommand, etc.), all implementing an execute() method, ([app/commands/basic_commands.py](https://github.com/TanushriVijay12/midterm1/blob/master/app/commands/basic_commands.py)). 
-    - Facade Pattern: A simplified interface that hides the complexity of underlying data manipulations.The history manager module wraps complex Pandas operations (loading, saving, and clearing history) into simple methods. ([app/history_manager.py](https://github.com/TanushriVijay12/midterm1/blob/master/app/history_manager.py))
-    - Factory/Strategy-like Approach: Plugin system - A dynamic method for extending application functionality without changing core code. New commands are "registered" via plugins. (implemented in [app/plugin_manager.py](https://github.com/TanushriVijay12/midterm1/blob/main/app/plugin_manager.py))
+    - Facade Pattern: A simplified interface that hides the complexity of underlying data manipulations.The history manager module wraps complex Pandas operations (loading, saving, and clearing history) into simple methods.([HistoryManager](https://github.com/TanushriVijay12/midterm1/blob/master/app/history_manager.py)) 
+    - Factory/Strategy-like Approach: Plugin system - A dynamic method for extending application functionality without changing core code. New commands are "registered" via plugins. (implemented in [PluginManager](https://github.com/TanushriVijay12/midterm1/blob/master/app/plugin_manager.py))
+    - Singleton Pattern (Implicit): Ensures a class has only one instance. While not explicitly implemented as a separate Singleton class, the logging configuration in [app/main.py](https://github.com/TanushriVijay12/midterm1/blob/master/app/main.py) is initialized once and behaves similarly to a Singleton, ensuring consistent logging throughout the application.
 
 - **Environment Variables:**  
-  The application loads configuration values (such as `LOG_LEVEL`) from environment variables using `python-dotenv` ([app/main.py](https://github.com/TanushriVijay12/midterm1/blob/main/app/main.py)). This approach allows secure and dynamic configuration without hardcoding sensitive data.
+  The application loads configuration values (such as `LOG_LEVEL`) from environment variables using `python-dotenv` ([app/main.py](https://github.com/TanushriVijay12/midterm1/blob/master/app/main.py)). This approach allows secure and dynamic configuration without hardcoding sensitive data.
 
 - **Logging:**  
-  A comprehensive logging system is set up in [app/main.py](https://github.com/TanushriVijay12/midterm1/blob/main/app/main.py) using Python’s logging module. Logs are written to `applog.log` and include detailed messages with timestamps and severity levels, aiding in monitoring and debugging.
+  A comprehensive logging system is set up in [app/main.py](https://github.com/TanushriVijay12/midterm1/blob/master/app/main.py) using Python’s logging module. Logs are written to `applog.log` and include detailed messages with timestamps and severity levels, aiding in monitoring and debugging.
 
 - **Exception Handling:**  
-  The code uses try/except blocks to handle errors gracefully, following both the EAFP and LBYL philosophies. Input is validated before operations, and errors (such as conversion failures or invalid operations) are caught and logged ([app/main.py](https://github.com/TanushriVijay12/midterm1/blob/main/app/main.py)).
-
+  The code uses try/except blocks to handle errors gracefully, following both the EAFP and LBYL philosophies. Input is validated before operations, and errors (such as conversion failures or invalid operations) are caught and logged ([app/main.py](https://github.com/TanushriVijay12/midterm1/blob/master/app/main.py))
