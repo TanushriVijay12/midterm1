@@ -61,7 +61,7 @@ def main():
 
         # Use inspect to determine the number of operands required (excluding 'self')
         sig = inspect.signature(commands[cmd_name].execute)
-        expected_operands = len(sig.parameters)
+        expected_operands = sum(1 for p in sig.parameters.values() if p.default is p.empty)
 
         if len(parts[1:]) < expected_operands:
             print(f"Invalid input. {cmd_name} expects {expected_operands} operand(s).")
@@ -76,7 +76,8 @@ def main():
             elif cmd_name == "export_csv":
                 operands = parts[1:expected_operands+1]
             else:
-                operands = [float(x) for x in parts[1:expected_operands+1]]
+                total_params = len(sig.parameters)
+                operands = [float(x) for x in parts[1:total_params+1]]
         except ValueError:
             print("Invalid operands. Please enter numbers.")
             continue

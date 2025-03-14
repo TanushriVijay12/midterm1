@@ -5,7 +5,7 @@ import logging
 
 class GreetPluginCommand:
     def execute(self, name="World"):
-        greeting = f"Hello {name}, Greetings!"
+        greeting = f"Hello {name}, Greetings from the greet plugin!"
         logging.info(f"GreetPluginCommand: {greeting}")
         return greeting
 
