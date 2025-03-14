@@ -1,6 +1,5 @@
 import math
 import pytest
-from app.plugins import math_plugins  # pylint: disable=unused-import
 from app.plugins.math_plugins import (
     SquareRootCommand,
     PowerCommand,
@@ -8,8 +7,13 @@ from app.plugins.math_plugins import (
     LogarithmCommand,
     register,
 )
+# pylint: disable=invalid-name
 
-# --- SquareRootCommand tests ---
+# ---------------------------
+# Tests without a history_manager
+# ---------------------------
+
+# --- SquareRootCommand tests without history_manager ---
 def test_sqrt_valid():
     cmd = SquareRootCommand()  # without history_manager
     result = cmd.execute(16)
@@ -20,13 +24,13 @@ def test_sqrt_negative():
     with pytest.raises(ValueError):
         cmd.execute(-9)
 
-# --- PowerCommand tests ---
+# --- PowerCommand tests without history_manager ---
 def test_power_valid():
     cmd = PowerCommand()
     result = cmd.execute(2, 3)
     assert result == 8
 
-# --- FactorialCommand tests ---
+# --- FactorialCommand tests without history_manager ---
 def test_factorial_valid():
     cmd = FactorialCommand()
     result = cmd.execute(5)
@@ -37,7 +41,7 @@ def test_factorial_negative():
     with pytest.raises(ValueError):
         cmd.execute(-3)
 
-# --- LogarithmCommand tests ---
+# --- LogarithmCommand tests without history_manager ---
 def test_logarithm_default():
     cmd = LogarithmCommand()
     result = cmd.execute(math.e)
@@ -54,7 +58,57 @@ def test_logarithm_invalid():
     with pytest.raises(ValueError):
         cmd.execute(0)
 
-# --- Test the register() function ---
+# ---------------------------
+# Tests with a dummy history_manager to cover the history recording branch
+# ---------------------------
+class DummyHistoryManager:
+    def __init__(self):
+        self.records = []
+    def add_record(self, operation, a, b, result):
+        self.records.append((operation, a, b, result))
+
+def test_sqrt_with_history():
+    dummy = DummyHistoryManager()
+    cmd = SquareRootCommand(dummy)
+    result = cmd.execute(25)
+    # 25 -> sqrt is 5.0
+    assert math.isclose(result, 5.0)
+    assert dummy.records == [("sqrt", 25, None, 5.0)]
+
+def test_power_with_history():
+    dummy = DummyHistoryManager()
+    cmd = PowerCommand(dummy)
+    result = cmd.execute(2, 4)
+    assert result == 16
+    assert dummy.records == [("power", 2, 4, 16)]
+
+def test_factorial_with_history():
+    dummy = DummyHistoryManager()
+    cmd = FactorialCommand(dummy)
+    result = cmd.execute(4)
+    expected = math.factorial(4)
+    assert result == expected
+    assert dummy.records == [("factorial", 4, None, expected)]
+
+def test_log_with_history_default():
+    dummy = DummyHistoryManager()
+    cmd = LogarithmCommand(dummy)
+    result = cmd.execute(math.e)
+    # default base is math.e, so log_e(e) should be 1.0
+    assert math.isclose(result, 1.0, rel_tol=1e-5)
+    # For this command, the record should include (a, base, result)
+    assert dummy.records == [("log", math.e, math.e, result)]
+
+def test_log_with_history_custom():
+    dummy = DummyHistoryManager()
+    cmd = LogarithmCommand(dummy)
+    result = cmd.execute(100, base=10)
+    assert math.isclose(result, 2.0, rel_tol=1e-5)
+    assert dummy.records == [("log", 100, 10, result)]
+
+# ---------------------------
+# Test the register() function
+# ---------------------------
 def test_register_function():
     cmds = register()
     # Verify all expected keys exist
