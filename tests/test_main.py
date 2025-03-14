@@ -48,12 +48,41 @@ def test_repl_insufficient_operands(monkeypatch, capsys):
     main()
     output = capsys.readouterr().out
     # Expect an error message about insufficient operands.
-    assert "Invalid input." in output
+    assert "expects" in output
 
 def test_repl_invalid_numeric(monkeypatch, capsys):
-    # Simulate a command with non-numeric operands
+    # Simulate a command with non-numeric operands for a numeric command.
     inputs = iter(["multiply a b", "exit"])
     monkeypatch.setattr("builtins.input", lambda prompt: next(inputs))
     main()
     output = capsys.readouterr().out
     assert "Invalid operands. Please enter numbers." in output
+
+def test_repl_divide_by_zero(monkeypatch, capsys):
+    # Simulate a divide command that should raise an error (division by zero)
+    inputs = iter(["divide 5 0", "exit"])
+    monkeypatch.setattr("builtins.input", lambda prompt: next(inputs))
+    main()
+    output = capsys.readouterr().out
+    # Check that an error is printed (the specific message may vary)
+    assert "Error:" in output and "zero" in output.lower()
+
+def test_repl_greet_plugin(monkeypatch, capsys):
+    # Simulate a greet_plugin command with a custom name.
+    # This assumes greet_plugin is registered by your plugin manager.
+    inputs = iter(["greet_plugin Tanu", "exit"])
+    monkeypatch.setattr("builtins.input", lambda prompt: next(inputs))
+    main()
+    output = capsys.readouterr().out
+    # Expected output: "Result: Hello Tanu, Greetings from the greet plugin!"
+    assert "Hello Tanu, Greetings from the greet plugin!" in output
+
+def test_repl_export_csv(monkeypatch, capsys):
+    # Simulate the export_csv command.
+    # This assumes export_csv is registered by your plugin manager.
+    inputs = iter(["export_csv export_test.csv", "exit"])
+    monkeypatch.setattr("builtins.input", lambda prompt: next(inputs))
+    main()
+    output = capsys.readouterr().out
+    # Expected output should include the export message.
+    assert "History exported to export_test.csv" in output
