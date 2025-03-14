@@ -1,2 +1,75 @@
 2025-03-13 18:17:25,963 - __main__ - INFO - Starting Advanced Python Calculator with REPL...
 2025-03-13 18:17:35,963 - root - INFO - AddCommand: 6.0 + 81.0 = 87.0
+2025-03-14 10:55:19,437 - __main__ - INFO - Starting Advanced Python Calculator with REPL...
+2025-03-14 10:55:40,356 - __main__ - DEBUG - Executing command greet_plugin with operands [1.0]
+2025-03-14 10:55:40,356 - root - INFO - GreetPluginCommand: Hello from the plugin, 1.0!
+2025-03-14 10:55:48,749 - __main__ - DEBUG - Executing command greet_plugin with operands [3.0]
+2025-03-14 10:55:48,749 - root - INFO - GreetPluginCommand: Hello from the plugin, 3.0!
+2025-03-14 10:57:22,108 - __main__ - DEBUG - Executing command add with operands [4.0, 7.0]
+2025-03-14 10:57:22,114 - root - INFO - AddCommand: 4.0 + 7.0 = 11.0
+2025-03-14 11:01:06,299 - __main__ - INFO - Starting Advanced Python Calculator with REPL...
+2025-03-14 11:04:20,881 - __main__ - INFO - Starting Advanced Python Calculator with REPL...
+2025-03-14 11:08:32,385 - __main__ - INFO - Starting Advanced Python Calculator with REPL...
+2025-03-14 11:08:41,779 - __main__ - DEBUG - Executing command sqrt with operands [25.0]
+2025-03-14 11:08:41,779 - root - INFO - SquareRootCommand: sqrt(25.0) = 5.0
+2025-03-14 11:08:54,314 - __main__ - DEBUG - Executing command export_csv with operands ['my_history.csv']
+2025-03-14 11:08:54,316 - root - INFO - CSVExportCommand: Exported history to my_history.csv
+2025-03-14 11:15:23,910 - __main__ - INFO - Starting Advanced Python Calculator with REPL...
+2025-03-14 11:15:32,796 - __main__ - DEBUG - Executing command greet_plugin with operands ['hi']
+2025-03-14 11:15:32,796 - root - INFO - GreetPluginCommand: Hello from the plugin, hi!
+2025-03-14 11:15:42,059 - __main__ - DEBUG - Executing command greet_plugin with operands ['Tanu']
+2025-03-14 11:15:42,059 - root - INFO - GreetPluginCommand: Hello from the plugin, Tanu!
+2025-03-14 11:16:26,861 - __main__ - INFO - Starting Advanced Python Calculator with REPL...
+2025-03-14 11:16:46,506 - __main__ - DEBUG - Executing command greet_plugin with operands ['Tanu']
+2025-03-14 11:16:46,506 - root - INFO - GreetPluginCommand: Hello Tanu, Greetings!
+2025-03-14 11:18:12,210 - __main__ - INFO - Starting Advanced Python Calculator with REPL...
+2025-03-14 11:18:14,721 - __main__ - DEBUG - Executing command add with operands [3.0, 4.0]
+2025-03-14 11:18:14,728 - root - INFO - AddCommand: 3.0 + 4.0 = 7.0
+2025-03-14 11:18:21,838 - __main__ - DEBUG - Executing command subtract with operands [10.0, 4.0]
+2025-03-14 11:18:21,839 - root - INFO - SubtractCommand: 10.0 - 4.0 = 6.0
+2025-03-14 11:18:29,106 - __main__ - DEBUG - Executing command multiply with operands [4.0, 3.0]
+2025-03-14 11:18:29,108 - root - INFO - MultiplyCommand: 4.0 * 3.0 = 12.0
+2025-03-14 11:18:37,413 - __main__ - DEBUG - Executing command divide with operands [8.0, 2.0]
+2025-03-14 11:18:37,415 - root - INFO - DivideCommand: 8.0 / 2.0 = 4.0
+2025-03-14 11:18:46,432 - __main__ - DEBUG - Executing command divide with operands [8.0, 0.0]
+2025-03-14 11:18:46,432 - __main__ - ERROR - Error executing command divide: Division by zero!
+Traceback (most recent call last):
+  File "/home/tanu7/webproj25/midtermhw/app/main.py", line 86, in main
+    result = commands[cmd_name].execute(*operands)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tanu7/webproj25/midtermhw/app/commands/basic_commands.py", line 51, in execute
+    result = self.calculator.divide(a, b)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tanu7/webproj25/midtermhw/app/calculator.py", line 18, in divide
+    raise ValueError("Division by zero!")
+ValueError: Division by zero!
+2025-03-14 11:18:52,064 - __main__ - DEBUG - Executing command sqrt with operands [16.0]
+2025-03-14 11:18:52,065 - root - INFO - SquareRootCommand: sqrt(16.0) = 4.0
+2025-03-14 11:19:00,468 - __main__ - DEBUG - Executing command sqrt with operands [-9.0]
+2025-03-14 11:19:00,468 - __main__ - ERROR - Error executing command sqrt: Cannot compute square root of a negative number.
+Traceback (most recent call last):
+  File "/home/tanu7/webproj25/midtermhw/app/main.py", line 86, in main
+    result = commands[cmd_name].execute(*operands)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tanu7/webproj25/midtermhw/app/plugins/math_plugins.py", line 10, in execute
+    raise ValueError("Cannot compute square root of a negative number.")
+ValueError: Cannot compute square root of a negative number.
+2025-03-14 11:19:07,603 - __main__ - DEBUG - Executing command power with operands [2.0, 3.0]
+2025-03-14 11:19:07,603 - root - INFO - PowerCommand: 2.0 raised to the power 3.0 = 8.0
+2025-03-14 11:19:12,113 - __main__ - DEBUG - Executing command factorial with operands [5.0]
+2025-03-14 11:19:12,113 - root - INFO - FactorialCommand: factorial(5.0) = 120
+2025-03-14 11:19:16,708 - __main__ - DEBUG - Executing command factorial with operands [-3.0]
+2025-03-14 11:19:16,708 - __main__ - ERROR - Error executing command factorial: Factorial is not defined for negative numbers.
+Traceback (most recent call last):
+  File "/home/tanu7/webproj25/midtermhw/app/main.py", line 86, in main
+    result = commands[cmd_name].execute(*operands)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tanu7/webproj25/midtermhw/app/plugins/math_plugins.py", line 36, in execute
+    raise ValueError("Factorial is not defined for negative numbers.")
+ValueError: Factorial is not defined for negative numbers.
+2025-03-14 11:19:22,993 - __main__ - DEBUG - Executing command log with operands [100.0, 10.0]
+2025-03-14 11:19:22,994 - root - INFO - LogarithmCommand: log_10.0(100.0) = 2.0
+2025-03-14 11:19:43,360 - __main__ - DEBUG - Executing command export_csv with operands ['myhistory.csv']
+2025-03-14 11:19:43,363 - root - INFO - CSVExportCommand: Exported history to myhistory.csv
+2025-03-14 11:19:53,644 - __main__ - DEBUG - Executing command greet_plugin with operands ['Alice']
+2025-03-14 11:19:53,644 - root - INFO - GreetPluginCommand: Hello Alice, Greetings!

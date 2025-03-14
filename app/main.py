@@ -68,15 +68,20 @@ def main():
             continue
 
         try:
-            # Only take the number of operands expected.
-            operands = [float(x) for x in parts[1:expected_operands+1]]
+            # For greet_plugin, pass operands as strings.
+            if cmd_name == "greet_plugin":
+                operands = parts[1:expected_operands+1]
+            # For commands that expect string operands (e.g., export_csv), pass them as-is.
+            # Otherwise, convert operands to float.
+            elif cmd_name == "export_csv":
+                operands = parts[1:expected_operands+1]
+            else:
+                operands = [float(x) for x in parts[1:expected_operands+1]]
         except ValueError:
             print("Invalid operands. Please enter numbers.")
             continue
 
-        # Extra debug logging for command execution
         logger.debug("Executing command %s with operands %s", cmd_name, operands)
-
         try:
             result = commands[cmd_name].execute(*operands)
             if result is not None:
