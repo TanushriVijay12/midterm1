@@ -60,7 +60,6 @@ The Advanced Python Calculator is a command-line application and it demonstrates
     pip install -r requirements.txt
 4. Set Up Environment Variables
     Create a .env file in the project root (this file is listed in .gitignore):
-    # .env file
     LOCAL_ENV=development
     LOG_LEVEL=DEBUG
 
