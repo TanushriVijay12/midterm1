@@ -131,3 +131,17 @@ ValueError: Division by zero!
 2025-03-14 14:07:32,402 - root - INFO - GreetPluginCommand: Hello Tanushri, Greetings from the greet plugin!
 2025-03-14 14:08:01,233 - __main__ - DEBUG - Executing command export_csv with operands ['egamplehist.csv']
 2025-03-14 14:08:01,238 - root - INFO - CSVExportCommand: Exported history to egamplehist.csv
+2025-03-14 16:04:15,460 - __main__ - INFO - Starting Advanced Python Calculator with REPL...
+2025-03-14 16:05:02,236 - __main__ - DEBUG - Executing command add with operands [2.0, 4.0]
+2025-03-14 16:05:02,241 - root - INFO - AddCommand: 2.0 + 4.0 = 6.0
+2025-03-14 16:05:42,345 - __main__ - DEBUG - Executing command greet_plugin with operands ['Tanu']
+2025-03-14 16:05:42,345 - root - INFO - GreetPluginCommand: Hello Tanu, Greetings from the greet plugin!
+2025-03-14 16:06:06,347 - __main__ - DEBUG - Executing command export_csv with operands ['newhistorysaving.csv']
+2025-03-14 16:06:06,348 - root - INFO - CSVExportCommand: Exported history to newhistorysaving.csv
+2025-03-14 16:19:05,849 - __main__ - INFO - Starting Advanced Python Calculator with REPL...
+2025-03-14 16:19:31,414 - __main__ - DEBUG - Executing command add with operands [2.0, 6.0]
+2025-03-14 16:19:31,422 - root - INFO - AddCommand: 2.0 + 6.0 = 8.0
+2025-03-14 16:20:05,469 - __main__ - DEBUG - Executing command greet_plugin with operands ['Tanushri']
+2025-03-14 16:20:05,469 - root - INFO - GreetPluginCommand: Hello Tanushri, Greetings from the greet plugin!
+2025-03-14 16:20:27,115 - __main__ - DEBUG - Executing command export_csv with operands ['gethist.csv']
+2025-03-14 16:20:27,119 - root - INFO - CSVExportCommand: Exported history to gethist.csv

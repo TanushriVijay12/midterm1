@@ -92,3 +92,11 @@ divide,4.0,2.0,2.0
 greet_plugin,Tanushri,,"Hello Tanushri, Greetings from the greet plugin!"
 add,1.0,2.0,3.0
 greet_plugin,Tanu,,"Hello Tanu, Greetings from the greet plugin!"
+add,2.0,4.0,6.0
+greet_plugin,Tanu,,"Hello Tanu, Greetings from the greet plugin!"
+add,1.0,2.0,3.0
+greet_plugin,Tanu,,"Hello Tanu, Greetings from the greet plugin!"
+add,2.0,6.0,8.0
+greet_plugin,Tanushri,,"Hello Tanushri, Greetings from the greet plugin!"
+add,1.0,2.0,3.0
+greet_plugin,Tanu,,"Hello Tanu, Greetings from the greet plugin!"
